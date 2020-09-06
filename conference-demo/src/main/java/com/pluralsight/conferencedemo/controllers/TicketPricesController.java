@@ -17,32 +17,32 @@ public class TicketPricesController {
 
     @GetMapping
     public List<TicketPrice> list() {
-        return repository.list();
+        return repository.findAll();
     }
 
     @GetMapping
     @RequestMapping("{id}")
     public TicketPrice get(@PathVariable Long id) {
-        return repository.find(id);
+        return repository.getOne(id);
     }
 
     @PostMapping
     public TicketPrice create(@RequestBody final TicketPrice tp){
-        return repository.create(tp);
+        return repository.saveAndFlush(tp);
     }
 
     @DeleteMapping
     public void delete(@PathVariable Long id) {
-        repository.delete(id);
+        repository.deleteById(id);
     }
 
     @PutMapping
     public TicketPrice update(@PathVariable Long id, @RequestBody TicketPrice tp) {
         //because this is a PUT, we expect all attributes to be passed in. A PATCH would only need what has changed.
         //TODO: Add validation that all attributes are passed in, otherwise return a 400 bad payload
-        TicketPrice existingTp = repository.find(id);
+        TicketPrice existingTp = repository.getOne(id);
         BeanUtils.copyProperties(tp, existingTp, "ticket_price_id");
-        return repository.update(tp);
+        return repository.save(tp);
     }
 
 }
