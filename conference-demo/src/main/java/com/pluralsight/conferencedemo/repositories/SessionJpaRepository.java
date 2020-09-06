@@ -13,4 +13,13 @@ public interface SessionJpaRepository extends JpaRepository<Session, Long> {
                 .setParameter("name", "%" + name + "%").getResultList();
      */
     List<Session> findBySessionNameContains(String name);
+
+    List<Session> findBySessionNameLike(String name);
+
+    List<Session> findBySessionNameNotLike(String name);
+
+    List<Session> findBySessionLengthIs(Integer length);
+
+    List<Session> findBySessionLengthNot(Integer length);
+
 }
