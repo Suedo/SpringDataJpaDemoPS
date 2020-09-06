@@ -1,7 +1,7 @@
 package com.pluralsight.conferencedemo.controllers;
 
 import com.pluralsight.conferencedemo.models.TicketPrice;
-import com.pluralsight.conferencedemo.repositories.TicketPriceRepository;
+import com.pluralsight.conferencedemo.repositories.TicketPriceJpaRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ import java.util.List;
 public class TicketPricesController {
 
     @Autowired
-    private TicketPriceRepository repository;
+    private TicketPriceJpaRepository repository;
 
     @GetMapping
     public List<TicketPrice> list() {

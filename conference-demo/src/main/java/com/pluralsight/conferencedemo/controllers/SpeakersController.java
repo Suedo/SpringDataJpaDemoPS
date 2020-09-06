@@ -1,9 +1,7 @@
 package com.pluralsight.conferencedemo.controllers;
 
-import com.pluralsight.conferencedemo.models.Session;
 import com.pluralsight.conferencedemo.models.Speaker;
-import com.pluralsight.conferencedemo.repositories.SessionRepository;
-import com.pluralsight.conferencedemo.repositories.SpeakerRepository;
+import com.pluralsight.conferencedemo.repositories.SpeakerJpaRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +13,7 @@ import java.util.List;
 public class SpeakersController {
 
     @Autowired
-    private SpeakerRepository repository;
+    private SpeakerJpaRepository repository;
 
     @GetMapping
     public List<Speaker> list() {

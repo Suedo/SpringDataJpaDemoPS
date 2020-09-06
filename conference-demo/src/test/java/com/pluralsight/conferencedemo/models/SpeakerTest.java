@@ -1,6 +1,6 @@
 package com.pluralsight.conferencedemo.models;
 
-import com.pluralsight.conferencedemo.repositories.SpeakerRepository;
+import com.pluralsight.conferencedemo.repositories.SpeakerJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 public class SpeakerTest {
     @Autowired
-    private SpeakerRepository repository;
+    private SpeakerJpaRepository repository;
 
     @PersistenceContext
     private EntityManager entityManager;

@@ -9,5 +9,5 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-public interface TicketPriceRepository extends JpaRepository<TicketPrice, Long> {
+public interface TicketPriceJpaRepository extends JpaRepository<TicketPrice, Long> {
 }
